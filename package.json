@@ -1,0 +1,10 @@
+{
+  "name": "Password-Hasher",
+  "version": "1.0.0",
+  "description": "A password hasher maded with NodeJS",
+  "main": "index.js",
+  "repository": "git@github.com:williamtorres1/Password-Hasher.git",
+  "author": "William Torres <williamtorres074@gmail.com>",
+  "license": "GPL General Public License v3.0",
+  "private": false
+}
