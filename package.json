@@ -1,5 +1,5 @@
 {
-  "name": "Password-Hasher",
+  "name": "password-hasher",
   "version": "1.0.0",
   "description": "A password hasher maded with NodeJS",
   "main": "src/index.js",
