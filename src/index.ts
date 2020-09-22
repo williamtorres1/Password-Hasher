@@ -26,7 +26,7 @@ let generateSalt = rounds => {
         .slice(0, rounds)
 }
 
-let hasher = (password: string, salt: string) => {
+let hasher = async (password: string, salt: string) => {
     let hash = crypto.createHmac('sha512', salt)
     hash.update(password)
     let value = hash.digest('hex')
@@ -36,7 +36,7 @@ let hasher = (password: string, salt: string) => {
     }
 }
 
-let hash = (password: string, salt: string) => {
+let hash = async (password: string, salt: string) => {
     if (password === null || salt === null) {
         throw new Error('Must provide password and salt values.')
     }
@@ -45,26 +45,18 @@ let hash = (password: string, salt: string) => {
     }
     return hasher(password, salt)
 }
-let compare = (password: string, hash: Hash) => {
-    hash = {
-        salt: 'f844b09ff50c',
-        hashedPassword: '2d2528d4534394d1e2702f53826d11c16ed4422f6bd466745cb4f1aa0e042b52b98fc5e65b86d73a6ce4807679b773fb955c4824b0471015354e1a872d42cb62'
-    }
+let compare = async (password: string, hash: Hash) => {
     if (password === null || hash === null) {
         throw new Error('Must provide password and hash values.')
     }
     if (typeof password !== 'string' || typeof hash !== 'object') {
         throw new Error('password must be a string and hash must either be a salt string or a number of rounds')
     }
-    let passwordData = hasher(password, hash.salt)
+    let passwordData = await hasher(password, hash.salt)
     if (passwordData.hashedPassword === hash.hashedPassword) {
         return true
     }
     return false
 }
 
-module.exports = {
-    generateSalt,
-    hash,
-    compare
-}
+export { generateSalt, hash, compare };

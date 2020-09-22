@@ -3,7 +3,7 @@ import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 
-const port = process.env.PORT || 3333
+import routes from './routes';
 
 const app = express()
 
@@ -13,7 +13,8 @@ app.use(bodyParser.json())
 mongoose.Promise = global.Promise
 
 mongoose.connect('mongodb://localhost:27017/hasher', {
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 })
     .then(() => {
         console.log('Succesfully connected to the database')
@@ -23,6 +24,9 @@ mongoose.connect('mongodb://localhost:27017/hasher', {
         return process.exit()
     })
 
-app.listen(port, () => {
-    console.log(`Your app is running on port: ${port}`)
+app.use('/', routes);
+
+
+app.listen(3333, () => {
+    console.log(`Backend started on port 3333! `)
 })
