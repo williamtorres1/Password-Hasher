@@ -1,6 +1,6 @@
 'use strict';
 
-let crypto = require('crypto')
+import crypto from 'crypto';
 let logger = func => {
     console.log(func)
 }
