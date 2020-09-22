@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { hash, generateSalt, compare } from './index';
+import { hash, generateSalt, compare } from './hash';
 
 import User from './models/User';
 
