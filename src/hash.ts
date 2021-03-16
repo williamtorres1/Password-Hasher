@@ -5,13 +5,14 @@ interface Hash {
 }
 
 import crypto from 'crypto';
+
 let logger = func => {
     console.log(func)
 }
 
 let generateSalt = rounds => {
     if (rounds >= 15) {
-        throw new Error(`${rounds} is greather than 15, Must be less that.`)
+        throw new Error(`${rounds} is greater than 15, Must be less that.`)
     }
     if (typeof rounds !== 'number') {
         throw new Error('rounds must be a number')
