@@ -2,7 +2,7 @@
 </h1>
 <p align="center">A password hasher made with NodeJS</p>
 
-![Demonstration](assets/demonstration.mp4)
+![Demonstration](assets/demonstration.gif)
 
 ## Table of Contents
 - [Inspiration](#inspiration)
