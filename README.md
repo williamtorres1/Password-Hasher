@@ -11,7 +11,7 @@
 - [Technologies](#techs)
 ### Inspiration
 
-This project was based and inspired on this [project](https://blog.logrocket.com/building-a-password-hasher-in-node-js/), made by LogRocket.
+This project was based and inspired on this [project](https://blog.logrocket.com/building-a-password-hasher-in-node-js/), made by LogRocket. I've added Typescript, some validation to don't duplicate any accounts, HTTP Status Code for each endpoint, online database with mongo
 ### Why?
 
 I'm particularly very interested on information security, and storing passwords are included. So, google recommended this blog to me and here i am.
@@ -31,7 +31,7 @@ $ yarn
 # Run
 $ yarn dev
 
-# The server will run on port 3333 - <http://localhost:3333
+# The server will run on port 3333 - <http://localhost:3333>
 
 ```
 ### Techs

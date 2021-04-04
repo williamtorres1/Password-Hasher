@@ -2,18 +2,17 @@ import express from 'express';
 import morgan from 'morgan';
 import mongoose from 'mongoose';
 
-import routes from './routes';
+import dotenv from 'dotenv';
+dotenv.config();
 
-import { mongoUri } from './credentials/mongo.json'
+import routes from './routes';
 
 const app = express()
 
 app.use(morgan('dev'))
 app.use(express.json())
 
-mongoose.Promise = global.Promise
-
-mongoose.connect(mongoUri, {
+mongoose.connect(process.env.DB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
@@ -27,7 +26,8 @@ mongoose.connect(mongoUri, {
 
 app.use('/', routes);
 
+const port = process.env.PORT || 3333
 
-app.listen(3333, () => {
-    console.log(`Backend started on port 3333! `)
+app.listen(port, () => {
+    console.log(`Backend started on port ${port}! `)
 })
